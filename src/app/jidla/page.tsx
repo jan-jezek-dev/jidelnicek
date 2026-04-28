@@ -17,11 +17,13 @@ export default function JidlaPage() {
   const supabase = createClient()
   const [meals, setMeals] = useState<Meal[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [filter, setFilter] = useState<MealType | 'vše'>('vše')
   const [detail, setDetail] = useState<Meal | null>(null)
 
   useEffect(() => {
-    supabase.from('meals').select('*').order('name').then(({ data }) => {
+    supabase.from('meals').select('*').order('name').then(({ data, error }) => {
+      if (error) { setLoadError(true); setLoading(false); return }
       setMeals(data || [])
       setLoading(false)
     })
@@ -30,6 +32,7 @@ export default function JidlaPage() {
   const filtered = filter === 'vše' ? meals : meals.filter(m => m.type === filter)
 
   if (loading) return <p className="text-gray-500">Načítám jídla…</p>
+  if (loadError) return <p className="text-red-500">Nepodařilo se načíst data. Zkus to znovu.</p>
 
   return (
     <div>

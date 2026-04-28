@@ -18,7 +18,10 @@ function getWeekDates(): Date[] {
 }
 
 function formatDate(date: Date): string {
-  return date.toISOString().split('T')[0]
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const d = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
 }
 
 function formatDayLabel(date: Date): string {
@@ -32,11 +35,12 @@ export default function Home() {
   const [mealPlan, setMealPlan] = useState<MealPlan[]>([])
   const [meals, setMeals] = useState<Meal[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [adding, setAdding] = useState<{ date: string; mealType: MealType } | null>(null)
   const [selectedMealId, setSelectedMealId] = useState<number | ''>('')
 
   const loadData = useCallback(async () => {
-    const [{ data: planData }, { data: mealsData }] = await Promise.all([
+    const [{ data: planData, error: planErr }, { data: mealsData, error: mealsErr }] = await Promise.all([
       supabase
         .from('meal_plan')
         .select('*, meal:meals(*)')
@@ -44,6 +48,7 @@ export default function Home() {
         .lte('planned_date', formatDate(weekDates[6])),
       supabase.from('meals').select('*').order('name'),
     ])
+    if (planErr || mealsErr) { setLoadError(true); setLoading(false); return }
     setMealPlan(planData || [])
     setMeals(mealsData || [])
     setLoading(false)
@@ -72,6 +77,7 @@ export default function Home() {
   }
 
   if (loading) return <p className="text-gray-500">Načítám jídelníček…</p>
+  if (loadError) return <p className="text-red-500">Nepodařilo se načíst data. Zkus to znovu.</p>
 
   return (
     <div>
