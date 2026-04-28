@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "PowerShell(gh --version)",
+      "PowerShell(Get-Command node, npm, gh -ErrorAction SilentlyContinue)",
+      "PowerShell($paths = @\\(\"C:\\\\Program Files\\\\nodejs\\\\node.exe\", \"C:\\\\Program Files \\(x86\\)\\\\nodejs\\\\node.exe\", \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\node.exe\", \"$env:APPDATA\\\\npm\\\\node.exe\", \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\", \"$env:LOCALAPPDATA\\\\GitHubCLI\\\\gh.exe\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { Write-Output \"FOUND: $p\" } })",
+      "PowerShell(& \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" -v)",
+      "PowerShell(& \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" -v)",
+      "PowerShell(& \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" --version)",
+      "PowerShell(& \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth status)",
+      "Bash(npm -v)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(gh api *)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
