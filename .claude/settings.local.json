@@ -18,7 +18,19 @@
       "Bash(gh repo *)",
       "Bash(git remote *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git check-ignore *)",
+      "Bash(gh label *)",
+      "Bash(gh issue create --title '📋 PRD: Jídelníček' --label prd --body ' *)",
+      "Bash(gh issue *)",
+      "Bash(npx create-next-app@15.5.15 _nextapp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(npx create-next-app@15.5.15 nextapp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv nextapp/* .)",
+      "Bash(shopt -u dotglob)",
+      "Bash(rmdir nextapp *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
     ]
   }
 }
