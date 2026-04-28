@@ -1,10 +1,19 @@
-# PRD Vibe Kit
+# Jídelníček
 
-Předpřipravený kit s AI agenty pro **Product Vibe Coding** workshop.
+Webová appka pro plánování týdenního jídelníčku. Nabízí 30 předpřipravených zdravých receptů (snídaně, obědy, večeře) a umožňuje sestavit společný plán pro celý týden — sdílený s partnerkou bez nutnosti přihlašování.
 
-Žádný kód, žádná appka — jen agenti a pravidla. Všechno si vygeneruješ sám z vlastního PRD.
+## Stack
+Next.js + Supabase + Tailwind + Vercel
 
-## Quick Start
+## Lokální vývoj
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Quick Start (workshop kit)
 
 ```bash
 # 1. Naklonuj kit
