@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" className="font-semibold text-green-700 text-lg">🥗 Jídelníček</Link>
             <Link href="/" className="text-sm text-gray-600 hover:text-green-700">Týdenní plán</Link>
             <Link href="/jidla" className="text-sm text-gray-600 hover:text-green-700">Jídla</Link>
+            <Link href="/nakupni-seznam" className="text-sm text-gray-600 hover:text-green-700">Nákupní seznam</Link>
             <Link href="/jidla/nove" className="ml-auto text-sm bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700">+ Přidat jídlo</Link>
           </div>
         </nav>
